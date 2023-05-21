@@ -51,3 +51,22 @@ mvn spring-boot:run
 [http://localhost:7080/photobook-demo/home/index.html](http://localhost:7080/photobook-demo/home/index.html)
 
 
+
+## Native compilation
+
+The code has been set for native compilation with [GraalVM](https://www.graalvm.org/) (tested with GraalVM 22.3 CE).  
+
+It is possible to compile :
+
+```
+mvn -Pnative native:compile
+```
+
+Or build an image : 
+
+```
+mvn -Pnative spring-boot:build-image
+```
+
+Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) for more informations.
+
