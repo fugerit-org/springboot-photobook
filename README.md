@@ -1,12 +1,24 @@
 # Springboot Photobook Demo App
 
+## Introduction
+
+Recently I followed some [Mongo DB courses](https://learn.mongodb.com/) and attended the [Spring I/O 2023](https://2023.springio.net/).  
+So I decided to practice a bit. This project is the result.  
+Currently is just the result of about 6/8 hours of work, so I just a POC integration of Mongo DB and Spring Boot.
+
+There is a live version at the link [https://springio23.fugerit.org/photobook-demo/home/index.html](https://springio23.fugerit.org/photobook-demo/home/index.html)
+
+TODO: (If I will have time)
+* Add mongodb setup instruction
+* Add i18n and pagination
+* Better user interface
 
 ## Quickstart 
 
 Prerequisites :
 * JDK 17+ (Tested with Amazon Corretto 17.0.7.7.1) 
-* Apache Maven 3.9.2
-
+* Apache Maven (Tested with 3.9.2)
+* Node js 18 (Tested with 18.6.0)
 
 ### 1. Mongo db
 
@@ -17,21 +29,25 @@ docker pull mongo:6.0.5
 docker run -p 27017:27017 --name MONGO6 -d mongo:6.0.5
 ```
 
-TODO: must add instruction for mongo db init
-
-
 This will start a mongo db linked on the default port and with the default username/password (root/example).
+
+NOTE:
+Two collections must be created : 
+photobook_meta (sample data in src/test/resources/sample-photobooks/spring-io-2023.json, property photobookMeta)
+photobook_images (sample data in src/test/resources/sample-photobooks/spring-io-2023.json, property photobookImages)
+It is possible to add the indexes too : src/test/resources/mongo-db/create-index.js
 
 
 ### 2. Start the application with maven
 
 ```
+mvn clean install -P buildreact
 mvn spring-boot:run
 ```
 
 
-### 3. Test api REST 
+### 3. Access home page
 
-[http://localhost:7080/photobook-demo/api/photobook/view/list](http://localhost:7080/photobook-demo/api/photobook/view/list)
+[http://localhost:7080/photobook-demo/home/index.html](http://localhost:7080/photobook-demo/home/index.html)
 
 
