@@ -1,0 +1,66 @@
+{
+
+	"photobookMeta": {
+
+		"photobookId":"springio23",
+		"creationTime:":{"$timestamp":{"t":0,"i":0}},
+		"modificationTime:":{"$timestamp":{"t":0,"i":0}},
+		"author":"Fugerit",
+		"labels": {
+			"def": {
+				"photobookTitle":"Spring I/O - Barcellona",
+				"photobookDescription":"Breve album sull'esperienza allo Spring I/O 2023 di Barcellona"
+	
+			},
+			"en": {
+				"photobookTitle":"Spring I/O - Barcelona",
+				"photobookDescription":"Brief summary of my experience at the Barcelona Spring I/O 2023"
+			}
+		}
+	
+	}
+	
+	,
+	
+	"photobookImages": [
+		{
+			"imageId":1000,
+			"photobookId":"springio23",
+			"creationTime:":{"$timestamp":{"t":0,"i":0}},
+			"modificationTime:":{"$timestamp":{"t":0,"i":0}},
+			"author":"Fugerit",
+			"url":"https://lh3.googleusercontent.com/fife/APg5EOY_zjDQZFvfp0-T9_RS0VJpsa4gn5yYm7Xkc8t0Mu2x-yQmix0jrZ3S-wUKrUIp9ytpt5Z0iam68NkbieSYu7VbSt5h8x5b8CkUGgrKfzlgn_B5L3orGX2L0TZ94f6L0BygGsSoMU6rqd8ojbtr8K9ERitcyjcBcmduqxVUq7MYxfzgQCDWpZKc0aIrWiPFqfuvwHDmC8w5wIGcCjJAS3PzmvT8Rj-u7sPM7TAa7z-ke6K1i2QPt1OKbod0xaL1AYXivFCxz2vCZAMjsjo5sdd5Z-q2vcJb981D4DSpXkEf-NE3MjzrRA5bgwzH-fniPjtS5QgGchXnv8msb5-48w4kPf5Q4iJwAF3zkTz0A4LaZVajsrwHOZisiYrAlcjpsIf_3IeembeygNlrAVHSfA96pCVPn_8qI7p9vT11Ly7140ew6tBwsFOMpoglsgNmd4qLNXu_855uvCnTU7DkKemOu8uAmcq6hbqUSMp-IQTEPL6Vznd-udfYPg_n9CVqIS4xHY5rO5ZWpf2OF5ED6SEZPHQdknCfB70XujbeAkAT0JsMvAzXcw5ilgmbMXSW8XeTIfKNg6Th8Y4fBPywwOzroCOmAPnRHXsb7-_ITzjYvvHxm_HLXBWpwG4Xm57mv5REhwxqhkFvds7T7j35DmGR_gAxAMOWRtVerlGQmY9GrMz5EYvJ-dMKwWJOt_cgEtl_DUh-Jr5fBPaLzCg1TQp_BsW2Tw6GHahPV7JRl5jL3d_LnIus_zLMVicd_XcutVmwYnedYOlYUvFbQD8O2yXG3vCUfzXbxexYS3GuXvW1cGaKXSGuD3f6BZbMy9y0QIJd9LamG8lbDDU-4NHzi5bRl9S0AI8YoYnLljZWjycfZnB6tiaXOkZo3ul_hVY1BH9Eh0P0iMm2ZCHEPda5_95sGr7KlBiTo0mxwjv2JmoNT2_iqwCzru7W1oHBOva-17xi4gTJ6EoOu3JcUmKUoOj0LEPhsFBLua_geFodb4Z9prQcBbfN1e7iSmqtm6NKm85EGAptQIJWDZ7bzl6ANjDce9Ba3tUUPnYs0IT95KZy-RzyPcJHqthAzm7iAJRGyiWiJp9yfrr4o8Ld0HpTZXhU8rjrAIe9CAj7dGJixTLvpzpEie66LjUvgcACFo5BtxGoucGTZFj2aI7knDq5EdzuhcYdiIj2yGu8_7847lo35gw05Pplz6z4wCqVR30nDYzqf8Af5jm8twiyeaCka2njXlDMzCEdq7t3x7L5WOpG2GsSExJORtb4HHHxSatGSsCJNzIStuApMeGhUHhd9F8Z4o0u8wRdwsbChe6R-pNQGvSY5YOpj__Sh2lz0T93WcrYTEbCW1ptJnW45nkQCV8RFE_JhI6_p2ujPJYQidJePM75PeAWMp-raBUlBt2ugAc06E3U1nw2cCE8x5nxnUlktttT5sgIjdnKgRHWvjpPFdTF0PQsNgF_mcbOQQOrSoeDepNBAjjHpzujbuIrZIqXQ8eeOoubXSxpb60GddnXvlEZa8f-F7eFYoL9_4eOl_5t9GaRYvm9U82CW2rCwbZxkv1t-g=w1103-h862-s-no?authuser=0",
+			"type":"jpg",
+			"labels": {
+				"def": {
+					"caption":"Ingresso alla \"Fira de Barcelona\" per la registrazione."
+		
+				},
+				"en": {
+					"caption":"Entrance to the \"Fira de Barcelona\" for registration."
+				}
+			}
+		}
+		,
+		{
+			"imageId":1010,
+			"photobookId":"springio23",
+			"creationTime:":{"$timestamp":{"t":0,"i":0}},
+			"modificationTime:":{"$timestamp":{"t":0,"i":0}},
+			"author":"Fugerit",
+			"url":"https://lh3.google.com/pw/AJFCJaWgV7_X5b9RVjj4FywXnwWVG_Ne2RTi7MkGruzCURSnAw1bj4c9yL3Y8EVkSQrA35F_Q6Afx_zI3bR9bX7Kyh4rqb3k0g=w894-h528-s-no?authuser=0",
+			"type":"jpg",
+			"labels": {
+				"def": {
+					"caption":"Sessione di benvenuto, seguita dal keynote dove verranno introdotti i principali temi dell'evento"
+		
+				},
+				"en": {
+					"caption":"Welcome session, followed by keynote when the main themes of the event are introduced"
+				}
+			}
+		}
+	]
+
+
+}

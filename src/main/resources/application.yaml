@@ -1,0 +1,9 @@
+server:
+  port: 7080
+
+spring:
+
+
+  data:
+    mongodb:
+      uri: mongodb://root:example@localhost:27017/test_db
