@@ -1,22 +1,24 @@
 package org.fugerit.java.demo.springboot.photobook.rest;
 
-import java.util.List;
+import java.io.IOException;
 
 import org.bson.Document;
 import org.fugerit.java.demo.springboot.photobook.dto.ResultDTO;
 import org.fugerit.java.demo.springboot.photobook.service.PhotobookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/photobook-demo/api/photobook/view")
+@RequestMapping("/api/photobook/view")
 @Slf4j
 public class PhotobookViewController {
 
@@ -24,11 +26,11 @@ public class PhotobookViewController {
 	private PhotobookService photobookService;
 
 	@GetMapping("/list")
-	public ResponseEntity<ResultDTO<List<Document>>> getList() {
-		ResponseEntity<ResultDTO<List<Document>>> response = null;
+	public ResponseEntity<ResultDTO<Document>> getList() {
+		ResponseEntity<ResultDTO<Document>> response = null;
 		try {
-			List<Document> docs =  this.photobookService.listPhotobooks( "it", 10, 1);
-			ResultDTO<List<Document>> dto = new ResultDTO<>( docs );
+			Document doc =  this.photobookService.listPhotobooks( "it", 10, 1);
+			ResultDTO<Document> dto = new ResultDTO<>( doc );
 			response = new ResponseEntity<>(dto, HttpStatus.OK);
 		} catch (Exception e) {
 			log.error( "Error : "+e, e );
@@ -38,11 +40,11 @@ public class PhotobookViewController {
 	}
 	
 	@GetMapping("/images/{photobookId}")
-	public ResponseEntity<ResultDTO<List<Document>>> getImages( @PathVariable String photobookId ) {
-		ResponseEntity<ResultDTO<List<Document>>> response = null;
+	public ResponseEntity<ResultDTO<Document>> getImages( @PathVariable String photobookId ) {
+		ResponseEntity<ResultDTO<Document>> response = null;
 		try {
-			List<Document> docs =  this.photobookService.listImages( photobookId, "it", 10, 1);
-			ResultDTO<List<Document>> dto = new ResultDTO<>( docs );
+			Document doc =  this.photobookService.listImages( photobookId, "it", 10, 1);
+			ResultDTO<Document> dto = new ResultDTO<>( doc );
 			response = new ResponseEntity<>(dto, HttpStatus.OK);
 		} catch (Exception e) {
 			log.error( "Error : "+e, e );
@@ -50,5 +52,13 @@ public class PhotobookViewController {
 		}
 		return response;
 	}
-
+	
+	@GetMapping(value = "/download/{imagePath}", produces = MediaType.IMAGE_JPEG_VALUE )
+	public @ResponseBody byte[] downloadImage( @PathVariable String imagePath ) throws IOException {
+		imagePath = imagePath.substring( 0, imagePath.indexOf( '.' ) );
+		String[] split = imagePath.split( "_" );
+		log.debug( "photobookId : {}, imageId : {}", split[0], split[1] );
+	    return this.photobookService.downloadImage( split[0], split[1] );
+	}
+	
 }

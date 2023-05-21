@@ -33,7 +33,6 @@ import org.bson.Document;
 	  _id:0,
 	  imageId:1,
 	  author:1,
-	  url:1,
 	  type:1,
 	  info:1
     },
@@ -88,7 +87,6 @@ public class PhotobookImagesAggregation {
 			    		   new Document("_id", 0L)
 			               .append("imageId", 1L)
 			               .append("author", 1L)
-			               .append("url", 1L)
 			               .append("type", 1L)
 			               .append("info", 1L)), 
 			    // step 5 - add metadata
