@@ -14,6 +14,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+const imageStyle = {
+	   width: '100%', 
+	   maxWidth: '600px'
+}
+
 class Home extends Component {
 
 	constructor(props) {
@@ -27,6 +32,11 @@ class Home extends Component {
 	}
 
 	componentDidMount() {
+		this.handleHome();
+	}
+	
+	handleHome() {
+		this.setState( { photobookId:null, photobookImages:null } );
 		var reactState = this;
 		appService.doAjaxJson('GET', '/photobook/view/list', null).then(response => {
 			if (response.success) {
@@ -39,7 +49,7 @@ class Home extends Component {
 				})
 			}
 		})
-	}
+	};
 
 	handlePhotobook( photobookId ) {
 		var reactState = this;
@@ -64,11 +74,14 @@ class Home extends Component {
 			let count = 0;
 			let renderList = this.state.photobookImages.content.data.map( (current) =>  
 				 <Row key={count++} className="align-items-center viewport-height">
-				 	 <Col><img size="50%" src={'/photobook-demo/api/photobook/view/download/'+this.state.photobookId+'_'+current.imageId+'.jpg'}/></Col>
+				 	 <Col><img style={imageStyle} src={'/photobook-demo/api/photobook/view/download/'+this.state.photobookId+'_'+current.imageId+'.jpg'}/></Col>
 				     <Col><div dangerouslySetInnerHTML={{ __html: current.info.caption }} /></Col>
 				 </Row>
-			)
-			printList =  <Container fluid>{renderList} </Container>
+			)	        
+			printList = <Fragment>
+								<Button variant="primary" onClick={ () => this.handleHome() }>Indietro</Button> 
+								<div></div> <Container fluid>{renderList} </Container>
+						</Fragment>
 		} else if ( this.state.photobookList != null ) {
 			let count = 0;
 			let renderList = this.state.photobookList.content.data.map( (current) =>  
