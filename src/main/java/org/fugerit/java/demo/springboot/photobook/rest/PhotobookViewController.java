@@ -43,7 +43,7 @@ public class PhotobookViewController {
 	public ResponseEntity<ResultDTO<Document>> getImages( @PathVariable String photobookId ) {
 		ResponseEntity<ResultDTO<Document>> response = null;
 		try {
-			Document doc =  this.photobookService.listImages( photobookId, "it", 10, 1);
+			Document doc =  this.photobookService.listImages( photobookId, "it", 30, 1);
 			ResultDTO<Document> dto = new ResultDTO<>( doc );
 			response = new ResponseEntity<>(dto, HttpStatus.OK);
 		} catch (Exception e) {

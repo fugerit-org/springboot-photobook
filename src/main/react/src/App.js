@@ -9,7 +9,8 @@ const TITLE = 'Photobook Demo';
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+	background: { default:'#366243' },
+    mode: 'dark'
   },
 });
 

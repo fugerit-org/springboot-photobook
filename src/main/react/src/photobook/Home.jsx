@@ -92,11 +92,11 @@ class Home extends Component {
 			          </Avatar>
 			        </ListItemAvatar>
 			        <Button variant="primary" onClick={ () => this.handlePhotobook(current.photobookId) }>
-			        	<ListItemText primary="Photos" secondary={current.info.photobookTitle} />
+			        	<ListItemText primary="Foto" secondary={current.info.photobookTitle} />
 			        </Button> 
 				 </ListItem>
 			)
-			printList =  <List sx={{ width: '100%', maxWidth: 800, bgcolor: 'background.paper' }}>{renderList}</List>
+			printList =  <List sx={{ width: '100%', maxWidth: 800 }}>{renderList}</List>
 		}
 		return <Fragment>
 			<h1>Springboot Demo : Album fotografico</h1>
