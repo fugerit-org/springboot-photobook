@@ -75,7 +75,7 @@ class Home extends Component {
 			let renderList = this.state.photobookImages.content.data.map( (current) =>  
 				 <Row key={count++} className="align-items-center viewport-height">
 				 	 <Col><img style={imageStyle} src={'/photobook-demo/api/photobook/view/download/'+this.state.photobookId+'_'+current.imageId+'.jpg'}/></Col>
-				     <Col><div dangerouslySetInnerHTML={{ __html: current.info.caption }} /></Col>
+				     <Col><div align="left" dangerouslySetInnerHTML={{ __html: current.info.caption }} /></Col>
 				 </Row>
 			)	        
 			printList = <Fragment>
