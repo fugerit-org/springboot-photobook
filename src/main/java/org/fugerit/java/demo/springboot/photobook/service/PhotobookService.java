@@ -7,6 +7,7 @@ import org.fugerit.java.demo.springboot.photobook.service.mongodb.PhotobookDownl
 import org.fugerit.java.demo.springboot.photobook.service.mongodb.PhotobookImagesAggregation;
 import org.fugerit.java.demo.springboot.photobook.service.mongodb.PhotobookListAggregation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +47,7 @@ public class PhotobookService {
 	}
 	
 
+	@Cacheable({"images"})
 	public byte[] downloadImage( String photobookId, String imageId ) {
 		MongoCollection<Document> collection = mongoTemplate.getCollection( "photobook_images" );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookDownloadAggregation.getAggregation(photobookId, imageId) );
