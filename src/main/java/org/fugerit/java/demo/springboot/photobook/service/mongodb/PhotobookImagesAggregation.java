@@ -94,7 +94,7 @@ public class PhotobookImagesAggregation {
 			    new Document("metadata", Arrays.asList(new Document("$count", "total"), 
 			                new Document("$addFields", 
 			                new Document("page", currentPage))))
-			            .append("data", Arrays.asList(new Document("$skip", 0L), 
+			            .append("data", Arrays.asList(new Document("$skip", (perPage*(currentPage-1))), 
 			                new Document("$limit", perPage)))));
 	}
 	
