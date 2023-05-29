@@ -57,11 +57,11 @@ public class PhotobookService {
 			Document doc = cursor.next();
 			String base64 = (String)doc.get( "base64" );
 			data = Base64.getDecoder().decode( base64 );
-			log.info( "found! {}, {}, size: {}", photobookId, imageId, data.length );
+			log.debug( "found! {}, {}, size: {}", photobookId, imageId, data.length );
 		} else {
-			log.info( "not found! {}, {}", photobookId, imageId );
+			log.debug( "not found! {}, {}", photobookId, imageId );
 		}
-		return data;
+		return data;¢
 	}
 	
 }
