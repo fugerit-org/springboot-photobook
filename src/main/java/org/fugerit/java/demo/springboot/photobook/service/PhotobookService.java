@@ -61,7 +61,7 @@ public class PhotobookService {
 		} else {
 			log.debug( "not found! {}, {}", photobookId, imageId );
 		}
-		return data;¢
+		return data;
 	}
 	
 }
