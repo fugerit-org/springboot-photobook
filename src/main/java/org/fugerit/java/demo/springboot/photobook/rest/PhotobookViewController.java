@@ -22,6 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PhotobookViewController {
 
+	private static final Integer DEF_PAGE_SIZE = 10;
+	
 	@Autowired
 	private PhotobookService photobookService;
 
@@ -39,11 +41,11 @@ public class PhotobookViewController {
 		return response;
 	}
 	
-	@GetMapping("/images/{photobookId}")
-	public ResponseEntity<ResultDTO<Document>> getImages( @PathVariable String photobookId ) {
+	@GetMapping("/images/{photobookId}/language/{language}/current_page/{currentPage}/page_size/{pageSize}")
+	public ResponseEntity<ResultDTO<Document>> getImages( @PathVariable String photobookId, @PathVariable String language, @PathVariable Integer currentPage, @PathVariable Integer pageSize ) {
 		ResponseEntity<ResultDTO<Document>> response = null;
 		try {
-			Document doc =  this.photobookService.listImages( photobookId, "it", 30, 1);
+			Document doc =  this.photobookService.listImages( photobookId, language, pageSize, currentPage);
 			ResultDTO<Document> dto = new ResultDTO<>( doc );
 			response = new ResponseEntity<>(dto, HttpStatus.OK);
 		} catch (Exception e) {
@@ -51,6 +53,11 @@ public class PhotobookViewController {
 			response = new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return response;
+	}
+	
+	@GetMapping("/images/{photobookId}")
+	public ResponseEntity<ResultDTO<Document>> getImages( @PathVariable String photobookId ) {
+		return this.getImages(photobookId, "def", 1, DEF_PAGE_SIZE);
 	}
 	
 	@GetMapping(value = "/download/{imagePath}", produces = MediaType.IMAGE_JPEG_VALUE )
