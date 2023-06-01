@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import appService from '../common/app-service';
 
+import TextField from '@mui/material/TextField';
 import Pagination from '@mui/material/Pagination';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -28,10 +29,12 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.handlePhotobook = this.handlePhotobook.bind(this);
+		//this.handleSearch = this.handleSearch.bind(this);
 		this.state = {
 			photobookList: null,
 			photobookId: null,
-			photobookImages: null
+			photobookImages: null,
+			searchText:null
 		}
 	}
 
@@ -61,7 +64,11 @@ class Home extends Component {
 	
 	handlePhotobook( photobookId, currentPage ) {
 		var reactState = this;
-		appService.doAjaxJson('GET', `/photobook/view/images/${photobookId}/language/${language}/current_page/${currentPage}/page_size/${pageSize}` , null).then(response => {
+		var searchText = '';
+		if ( this.state.searchText != null && this.state.searchText.length > 3 ) {
+			searchText = `/search/${this.state.searchText}`;
+		}
+		appService.doAjaxJson('GET', `/photobook/view/images/${photobookId}/language/${language}/current_page/${currentPage}/page_size/${pageSize}${searchText}` , null).then(response => {
 			if (response.success) {
 				reactState.setState({
 					photobookId: photobookId,
@@ -73,7 +80,7 @@ class Home extends Component {
 				})
 			}
 		})
-	};
+	}
 
 	render() {
 		let printList = 'loading...';
@@ -89,9 +96,10 @@ class Home extends Component {
 			)	        
 			printList = <Fragment>
 								<Container fluid>
+									
 									<Row style={{margin:'10px'}}>
 										<Col><Pagination count={pageNumber} onChange={this.handlePage}/></Col>
-										<Col><Button variant="primary" onClick={ () => this.handleHome() }>Indietro</Button> </Col>
+										<Col><Button variant="primary" onClick={ () => this.handleHome() }>Indietro</Button></Col>
 									</Row> 
 								</Container>
 								<Container fluid>{renderList}</Container>
@@ -114,6 +122,12 @@ class Home extends Component {
 		}
 		return <Fragment>
 			<h1>Springboot Demo : Album fotografico</h1>
+			<Container fluid>
+									<Row style={{margin:'10px'}}>
+										<Col><TextField id="filled-basic" label="Inserisci almeno due caratteri..." variant="filled" onChange={this.handleSearch} /></Col>
+										<Col><Button variant="primary" onClick={ () => this.handleSearchAction() }>Ricerca</Button></Col>
+									</Row> 
+								</Container>
 			{printList}
 		</Fragment>
 	}

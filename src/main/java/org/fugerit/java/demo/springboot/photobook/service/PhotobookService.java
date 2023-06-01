@@ -35,9 +35,9 @@ public class PhotobookService {
 		return doc;
 	}
 	
-	public Document listImages( String photobookId, String langCode, int perPage, int currentPage ) {
+	public Document listImages( String photobookId, String langCode, int perPage, int currentPage, String text ) {
 		MongoCollection<Document> collection = mongoTemplate.getCollection( "photobook_images" );
-		AggregateIterable<Document> result = collection.aggregate( PhotobookImagesAggregation.getAggregation(photobookId, langCode, perPage, currentPage) );
+		AggregateIterable<Document> result = collection.aggregate( PhotobookImagesAggregation.getAggregation(photobookId, langCode, perPage, currentPage, text) );
 		Document doc = null;
 		MongoCursor<Document> cursor = result.iterator();
 		if ( cursor.hasNext() ) {
