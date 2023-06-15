@@ -13,51 +13,39 @@ import org.fugerit.java.core.lang.helpers.StringUtils;
  
 [
   {
-    $match: {
-      photobookId: "springio23",
+    $search: {
+      index: "images_search_index",
+      text: {
+        query: "Native",
+        path: { wildcard: "*", },
+      },
     },
   },
   {
-    $sort:
+    $match: { photobookId: "springio23", },
+  },
+  {
+    $set:
       {
-        imageId: 1,
+        info: {
+          $ifNull: ["$labels.en", "$labels.def"],
+        },
       },
-  },
-  {
-    $set: {
-      info: {
-        $ifNull: ["$labels.en", "$labels.def"],
-      },
-    },
   },
   {
     $project: {
-	  _id:0,
-	  imageId:1,
-	  author:1,
-	  type:1,
-	  info:1
+      _id: 0, imageId: 1, author: 1, type: 1, info: 1,
     },
   },
   {
     $facet: {
       metadata: [
-        {
-          $count: "total",
-        },
-        {
-          $addFields: {
-            page: NumberInt(1),
-          },
-        },
+        { $count: "total", },
+        { $addFields: { page: NumberInt(1), }, },
       ],
       data: [
-        {
-          $skip: 0,
-        },
-        {
-          $limit: 30,
-        },
+        { $skip: 0, },
+        { $limit: 30, },
       ],
     },
   },
