@@ -5,18 +5,18 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.0</version>
+		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.fugerit.java.demo</groupId>
 	<artifactId>springboot-photobook</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>springboot-photobook</name>
 	<description>Spring Boot Demo Photobook</description>
 	
 	<properties>
-		<java.version>17</java.version>
-		<fj-version>8.0.5</fj-version>
+		<java.version>21</java.version>
+		<fj-version>8.6.2</fj-version>
 		<!-- front end runtime -->
 		<src.react>src/main/react</src.react>
 		<npm.build.script>build</npm.build.script>

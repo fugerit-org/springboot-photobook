@@ -16,17 +16,20 @@ TODO: (If I will have time)
 ## Quickstart 
 
 Prerequisites :
-* JDK 17+ (Tested with Amazon Corretto 17.0.7.7.1) 
-* Apache Maven (Tested with 3.9.2)
-* Node js 18 (Tested with 18.6.0)
+* JDK 21+ (Tested with Oracle GraalVM 21) 
+* Apache Maven (Tested with 3.9.6)
+* Node js 20 (Tested with 20.11.0)
 
 ### 1. Mongo db
 
 you will need mongo db, an easy way to do it is with a docker image, for instance : 
 
+```shell
+docker pull mongo:8.0.0-rc7
 ```
-docker pull mongo:6.0.5
-docker run -p 27017:27017 --name MONGO6 -d mongo:6.0.5
+
+```shell
+docker run -p 27017:27017 --name MONGO8 -d -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example mongo:8.0.0-rc7
 ```
 
 This will start a mongo db linked on the default port and with the default username/password (root/example).
