@@ -61,15 +61,29 @@ The code has been set for native compilation with [GraalVM](https://www.graalvm.
 
 It is possible to compile :
 
-```
+```shell
 mvn -Pnative native:compile
 ```
 
 Or build an image : 
 
-```
+```shell
 mvn -Pnative spring-boot:build-image
 ```
 
 Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) for more informations.
 
+
+## Docker image
+
+Building the native image : 
+
+```shell
+docker build -t springboot-photobook -f src/main/docker/Dockerfile.native .
+```
+
+Running the container :
+
+```shell
+docker run -it -p 8080:8080 --name springboot-photobook springboot-photobook
+```

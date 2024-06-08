@@ -1,0 +1,9 @@
+FROM debian:bookworm-slim
+
+WORKDIR /app
+
+# Copy the native binary from the build stage
+COPY target/springboot-photobook /app/springboot-photobook
+
+# Run the application
+CMD ["/app/springboot-photobook"]
