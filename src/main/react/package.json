@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/photobook-demo/home",
-  "proxy": "http://localhost:7080",
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
