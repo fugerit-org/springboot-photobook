@@ -22,38 +22,36 @@ TODO: (If I will have time)
 
 ### 1. Mongo db
 
-you will need mongo db, an easy way to do it is with a docker image, for instance : 
+Create mongo db instance with db initialization (script src/test/resources/mongo-db/mongo-init.js) :
 
 ```shell
-docker pull mongo:8.0.0-rc7
-```
-
-```shell
-docker run -p 27017:27017 --name MONGO8 -rm mongo:8.0.0-rc7
+docker run --rm -p 27017:27017 --name MONGO8 -v `pwd`/src/test/resources/mongo-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js mongo:8.0.0-rc7
 ```
 
 This will start a mongo db linked on the default port and with the default username/password (root/example).
 
-NOTE:
-Two collections must be created : 
-photobook_meta (sample data in src/test/resources/sample-photobooks/spring-io-2023.json, property photobookMeta)
-photobook_images (sample data in src/test/resources/sample-photobooks/spring-io-2023.json, property photobookImages)
-It is possible to add the indexes too : src/test/resources/mongo-db/create-index.js
-
-
 ### 2. Start the application with maven
 
-```
+build
+
+```shell
 mvn clean install -P buildreact
+```
+And start
+
+```shell
 mvn spring-boot:run
 ```
 
-
 ### 3. Access home page
 
-[http://localhost:7080/photobook-demo/home/index.html](http://localhost:7080/photobook-demo/home/index.html)
+[http://localhost:8080/photobook-demo/home/index.html](http://localhost:7080/photobook-demo/home/index.html)
 
+## environment variables
 
+| key         | dedault                                  | 
+|-------------|------------------------------------------|
+| MONGODB_URL | mongodb://localhost:27017/photobook_demo |
 
 ## Native compilation
 
@@ -73,8 +71,13 @@ mvn -Pnative spring-boot:build-image
 
 Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) for more informations.
 
-
 ## Docker image
+
+### docker container (jvm)
+
+
+
+### docker container (native)
 
 Building the native image : 
 

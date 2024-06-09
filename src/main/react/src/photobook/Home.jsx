@@ -83,7 +83,7 @@ class Home extends Component {
 			let count = 0;
 			let renderList = this.state.photobookImages.content.data.map( (current) =>  
 				 <Row key={count++} className="align-items-center viewport-height" style={{margin:'10px'}}>
-				 	 <Col><img style={imageStyle} src={'/photobook-demo/api/photobook/view/download/'+this.state.photobookId+'_'+current.imageId+'.jpg'}/></Col>
+				 	 <Col><img alt={current.imageId} style={imageStyle} src={'/photobook-demo/api/photobook/view/download/'+this.state.photobookId+'_'+current.imageId+'.jpg'}/></Col>
 				     <Col><div align="left" dangerouslySetInnerHTML={{ __html: current.info.caption }} /></Col>
 				 </Row>
 			)	        

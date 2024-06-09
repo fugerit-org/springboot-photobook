@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import {
 	BrowserRouter as Router,
@@ -15,10 +15,6 @@ import { Button, Grid } from "@mui/material";
 const homepage = '/photobook-demo/home';
 
 class Photobook extends Component {
-
-	constructor(props) {
-		super(props);
-	}
 
 	render() {
 		

@@ -19,5 +19,6 @@ export const onResponseError = function (error) {
     case 401:
     case 403:
       break
+    default:
   }
 }
