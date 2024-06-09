@@ -15,7 +15,7 @@
 	<description>Spring Boot Demo Photobook</description>
 	
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 		<fj-version>8.6.2</fj-version>
 		<!-- front end runtime -->
 		<src.react>src/main/react</src.react>
