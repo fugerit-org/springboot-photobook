@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2024-06-09
+
 ### Added
 
-- dockerfile for native image
+- dockerfile for native image and openjdk image
 - test containers configuration
 
 ### Changed

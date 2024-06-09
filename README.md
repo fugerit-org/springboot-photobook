@@ -1,5 +1,12 @@
 # Springboot Photobook Demo App
 
+[![Keep a Changelog v1.1.0 badge](https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.1.0-%23E05735)](https://github.com/fugerit-org/springboot-photobook/blob/master/CHANGELOG.md)
+[![license](https://img.shields.io/badge/License-Apache%20License%202.0-teal.svg)](https://opensource.org/licenses/Apache-2.0)
+[![code of conduct](https://img.shields.io/badge/conduct-Contributor%20Covenant-purple.svg)](https://github.com/fugerit-org/fj-universe/blob/main/CODE_OF_CONDUCT.md)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_springboot-photobook&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fugerit-org_springboot-photobook)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_springboot-photobook&metric=coverage)](https://sonarcloud.io/summary/new_code?id=fugerit-org_springboot-photobook)
+[![Docker images](https://img.shields.io/badge/dockerhub-images-important.svg?logo=Docker)](https://hub.docker.com/repository/docker/fugeritorg/springboot-photobook/general)
+
 ## Introduction
 
 Recently I followed some [Mongo DB courses](https://learn.mongodb.com/) and attended the [Spring I/O 2023](https://2023.springio.net/).  
@@ -7,11 +14,6 @@ So I decided to practice a bit. This project is the result.
 Currently is just the result of about 6/8 hours of work, so I just a POC integration of Mongo DB and Spring Boot.
 
 There is a live version at the link [https://springio23.fugerit.org/photobook-demo/home/index.html](https://springio23.fugerit.org/photobook-demo/home/index.html)
-
-TODO: (If I will have time)
-* Add mongodb setup instruction
-* Add i18n and pagination
-* Better user interface
 
 ## Quickstart 
 
