@@ -80,7 +80,7 @@ Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/cur
 Build spring application (jar)
 
 ```shell
-mvn clean package -P buildreact,metadata
+mvn clean package -P buildreact
 ```
 
 Build container openjdk
