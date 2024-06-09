@@ -1,0 +1,30 @@
+# CI with maven build and scan
+
+name: CI docker build native amd64
+
+on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request.
+  push:
+    branches:
+      - graal-arm
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - uses: fugerit-org/psychic-actions/maven-container-publish@mcp
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          java-type: 'native'
+          java-distribution: 'graalvm'
+          java-version: '22-ea'
+          maven-options: ' clean verify'
+          docker-file: './src/main/docker/Dockerfile.build.native'
+          docker-platforms: linux/arm64
+          docker-tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{github.event.repository.name}}:${{ github.ref_name }}-arm64native,${{ secrets.DOCKERHUB_USERNAME }}/${{github.event.repository.name}}:latest-arm64native
+          dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}

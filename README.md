@@ -62,13 +62,13 @@ The code has been set for native compilation with [GraalVM](https://www.graalvm.
 It is possible to compile :
 
 ```shell
-mvn -Pnative,buildreact,metadata native:compile
+mvn -Pnative,buildreact native:compile
 ```
 
 Or build an image : 
 
 ```shell
-mvn -Pnative spring-boot:build-image
+mvn -Pnative,buildreact spring-boot:build-image
 ```
 
 Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) for more informations.

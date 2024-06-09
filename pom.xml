@@ -98,7 +98,16 @@
 			<plugin>
 			    <groupId>org.graalvm.buildtools</groupId>
 			    <artifactId>native-maven-plugin</artifactId>
-			</plugin>		
+			</plugin>
+			<plugin>
+				<groupId>org.graalvm.buildtools</groupId>
+				<artifactId>native-maven-plugin</artifactId>
+				<configuration>
+					<buildArgs>
+						<buildArg>-H:IncludeResources=build.properties</buildArg>
+					</buildArgs>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
