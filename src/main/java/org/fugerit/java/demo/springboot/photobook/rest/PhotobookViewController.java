@@ -31,30 +31,20 @@ public class PhotobookViewController {
 
 	@GetMapping("/list")
 	public ResponseEntity<ResultDTO<Document>> list() {
-		ResponseEntity<ResultDTO<Document>> response = null;
-		try {
+		return RestHelper.handle( () -> {
 			Document doc =  this.photobookService.listPhotobooks(Locale.ITALY.getCountry(), 10, 1);
 			ResultDTO<Document> dto = new ResultDTO<>( doc );
-			response = new ResponseEntity<>(dto, HttpStatus.OK);
-		} catch (Exception e) {
-			log.error( "Error : "+e, e );
-			response = new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		return response;
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		} );
 	}
 	
 	@GetMapping("/images/{photobookId}/language/{language}/current_page/{currentPage}/page_size/{pageSize}")
 	public ResponseEntity<ResultDTO<Document>> images( @PathVariable String photobookId, @PathVariable String language, @PathVariable Integer currentPage, @PathVariable Integer pageSize ) {
-		ResponseEntity<ResultDTO<Document>> response = null;
-		try {
+		return RestHelper.handle( () -> {
 			Document doc =  this.photobookService.listImages( photobookId, language, pageSize, currentPage);
 			ResultDTO<Document> dto = new ResultDTO<>( doc );
-			response = new ResponseEntity<>(dto, HttpStatus.OK);
-		} catch (Exception e) {
-			log.error( "Error : "+e, e );
-			response = new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		return response;
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		} );
 	}
 	
 	@GetMapping("/images/{photobookId}")

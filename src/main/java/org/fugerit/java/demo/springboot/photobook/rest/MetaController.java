@@ -16,18 +16,13 @@ import lombok.extern.slf4j.Slf4j;
 public class MetaController {
 
 	@GetMapping("/version")
-	public ResponseEntity<Properties> getList() {
-		ResponseEntity<Properties> response = null;
-		try {
+	public ResponseEntity<Properties> version() {
+		return RestHelper.handle( () -> {
 			Properties props = new Properties();
 			props.setProperty( "version" , "1.0.0" );
 			props.setProperty( "revision" , "NA" );
-			response = new ResponseEntity<>(props, HttpStatus.OK);
-		} catch (Exception e) {
-			log.error( "Error : "+e, e );
-			response = new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		return response;
+			return new ResponseEntity<>(props, HttpStatus.OK);
+		} );
 	}
 	
 }
