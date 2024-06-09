@@ -75,18 +75,34 @@ Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/cur
 
 ### docker container (jvm)
 
+Build spring application (jar)
 
+```shell
+mvn clean package -P buildreact
+```
+
+Build container openjdk
+
+```shell
+docker build -t springboot-photobook-jvm -f src/main/docker/Dockerfile.jvm .
+```
+
+Running the container :
+
+```shell
+docker run -it -p 8080:8080 --name springboot-photobook-jvm springboot-photobook-jvm
+```
 
 ### docker container (native)
 
 Building the native image : 
 
 ```shell
-docker build -t springboot-photobook -f src/main/docker/Dockerfile.native .
+docker build -t springboot-photobook-native -f src/main/docker/Dockerfile.native .
 ```
 
 Running the container :
 
 ```shell
-docker run -it -p 8080:8080 --name springboot-photobook springboot-photobook
+docker run -it -p 8080:8080 --name springboot-photobook-native springboot-photobook-native
 ```
