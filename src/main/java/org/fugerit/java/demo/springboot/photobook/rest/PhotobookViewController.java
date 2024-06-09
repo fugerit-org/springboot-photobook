@@ -1,6 +1,7 @@
 package org.fugerit.java.demo.springboot.photobook.rest;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import org.bson.Document;
 import org.fugerit.java.demo.springboot.photobook.dto.ResultDTO;
@@ -29,10 +30,10 @@ public class PhotobookViewController {
 	}
 
 	@GetMapping("/list")
-	public ResponseEntity<ResultDTO<Document>> getList() {
+	public ResponseEntity<ResultDTO<Document>> list() {
 		ResponseEntity<ResultDTO<Document>> response = null;
 		try {
-			Document doc =  this.photobookService.listPhotobooks( "it", 10, 1);
+			Document doc =  this.photobookService.listPhotobooks(Locale.ITALY.getCountry(), 10, 1);
 			ResultDTO<Document> dto = new ResultDTO<>( doc );
 			response = new ResponseEntity<>(dto, HttpStatus.OK);
 		} catch (Exception e) {
@@ -43,7 +44,7 @@ public class PhotobookViewController {
 	}
 	
 	@GetMapping("/images/{photobookId}/language/{language}/current_page/{currentPage}/page_size/{pageSize}")
-	public ResponseEntity<ResultDTO<Document>> getImages( @PathVariable String photobookId, @PathVariable String language, @PathVariable Integer currentPage, @PathVariable Integer pageSize ) {
+	public ResponseEntity<ResultDTO<Document>> images( @PathVariable String photobookId, @PathVariable String language, @PathVariable Integer currentPage, @PathVariable Integer pageSize ) {
 		ResponseEntity<ResultDTO<Document>> response = null;
 		try {
 			Document doc =  this.photobookService.listImages( photobookId, language, pageSize, currentPage);
@@ -57,8 +58,8 @@ public class PhotobookViewController {
 	}
 	
 	@GetMapping("/images/{photobookId}")
-	public ResponseEntity<ResultDTO<Document>> getImages( @PathVariable String photobookId ) {
-		return this.getImages(photobookId, "def", 1, DEF_PAGE_SIZE);
+	public ResponseEntity<ResultDTO<Document>> images( @PathVariable String photobookId ) {
+		return this.images(photobookId, "def", 1, DEF_PAGE_SIZE);
 	}
 	
 	@GetMapping(value = "/download/{imagePath}", produces = MediaType.IMAGE_JPEG_VALUE )

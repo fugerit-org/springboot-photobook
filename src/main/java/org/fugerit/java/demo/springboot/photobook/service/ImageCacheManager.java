@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableCaching
 public class ImageCacheManager {
+    
     @Bean
     public CacheManager cacheManager() {
         return new ConcurrentMapCacheManager("images");

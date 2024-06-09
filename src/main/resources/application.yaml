@@ -6,4 +6,4 @@ server:
 spring:
   data:
     mongodb:
-      uri: ${MONGODB_URL:mongodb://root:example@localhost:27017/test_db}
+      uri: ${MONGODB_URL:mongodb://localhost:27017/photobook_demo}

@@ -29,7 +29,7 @@ docker pull mongo:8.0.0-rc7
 ```
 
 ```shell
-docker run -p 27017:27017 --name MONGO8 -d -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example mongo:8.0.0-rc7
+docker run -p 27017:27017 --name MONGO8 -rm mongo:8.0.0-rc7
 ```
 
 This will start a mongo db linked on the default port and with the default username/password (root/example).
