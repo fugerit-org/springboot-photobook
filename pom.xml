@@ -24,7 +24,15 @@
 		<exec-plugin.version>3.1.0</exec-plugin.version>
 		<antrun-plugin.version>3.1.0</antrun-plugin.version>
 		<jacoco-maven-plugin-version>0.8.12</jacoco-maven-plugin-version>
+		<buildnumber-maven-plugin-version>3.2.0</buildnumber-maven-plugin-version>
+		<licenseURL>http://www.apache.org/licenses/LICENSE-2.0.txt</licenseURL>
 	</properties>
+
+	<scm>
+		<connection>scm:git:git://github.com/fugerit-org/springboot-photobook.git</connection>
+		<developerConnection>scm:git:ssh://github.com/fugerit-org/springboot-photobook.git</developerConnection>
+		<url>https://github.com/fugerit-org/springboot-photobook.git</url>
+	</scm>
 
 	<dependencyManagement>
 
@@ -102,6 +110,25 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>${buildnumber-maven-plugin-version}</version>
+				<executions>
+					<execution>
+						<configuration>
+							<shortRevisionLength>10</shortRevisionLength>
+							<attach>true</attach>
+							<!--make it available for jar/war classpath resource -->
+							<addOutputDirectoryToResources>true</addOutputDirectoryToResources>
+						</configuration>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>create-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -262,6 +289,5 @@
 		</profile>
 
 	</profiles>
-
 
 </project>

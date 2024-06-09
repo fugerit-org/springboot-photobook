@@ -60,7 +60,7 @@ The code has been set for native compilation with [GraalVM](https://www.graalvm.
 It is possible to compile :
 
 ```shell
-mvn -Pnative native:compile
+mvn -Pnative,buildreact,metadata native:compile
 ```
 
 Or build an image : 
@@ -78,7 +78,7 @@ Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/cur
 Build spring application (jar)
 
 ```shell
-mvn clean package -P buildreact
+mvn clean package -P buildreact,metadata
 ```
 
 Build container openjdk

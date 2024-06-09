@@ -2,6 +2,7 @@ package org.fugerit.java.demo.springboot.photobook.rest;
 
 import java.util.Properties;
 
+import org.fugerit.java.core.util.PropsIO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +19,9 @@ public class MetaController {
 	@GetMapping("/version")
 	public ResponseEntity<Properties> version() {
 		return RestHelper.handle( () -> {
-			Properties props = new Properties();
-			props.setProperty( "version" , "1.0.0" );
-			props.setProperty( "revision" , "NA" );
-			return new ResponseEntity<>(props, HttpStatus.OK);
+			Properties buildProps = PropsIO.loadFromClassLoader( "build.properties" );
+			log.info( "buildProps : {}", buildProps );
+			return new ResponseEntity<>(buildProps, HttpStatus.OK);
 		} );
 	}
 	
