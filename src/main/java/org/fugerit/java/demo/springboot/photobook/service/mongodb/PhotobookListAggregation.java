@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.bson.Document;
 
-/*
- 
- this is the aggregation for the shell : 
- 
+/**
+ * MongoDB aggregation list photobook
+ *
+
+ <code>
  [
   {
     $set:
@@ -57,10 +58,13 @@ import org.bson.Document;
       },
   },
 ]
- 
+ </code>
+
  */
 
 public class PhotobookListAggregation {
+
+	private PhotobookListAggregation() {}
 
 	public static List<Document> getAggregation( String langCode, int perPage, int currentPage ) {
 		/*

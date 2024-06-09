@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.bson.Document;
 
-/*
- 
- this is the aggregation for the shell : 
- 
+/**
+ * MongoDB aggregation images photobook
+ *
+
+ <code>
 [
   {
     $match: {
@@ -60,10 +61,13 @@ import org.bson.Document;
     },
   },
 ]
+ </code>
  
  */
 
 public class PhotobookImagesAggregation {
+
+	private PhotobookImagesAggregation() {}
 
 	public static List<Document> getAggregation( String photobookId, String langCode, int perPage, int currentPage ) {
 		/*

@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.bson.Document;
 
-/*
+/**
+ * MongoDB aggregation to download photobook
+ *
 
-this is the aggregation for the shell : 
-
+ <code>
 [
  {
    $match:
@@ -25,10 +26,13 @@ this is the aggregation for the shell :
      },
  },
 ]
+ </code>
 
 */
 
 public class PhotobookDownloadAggregation {
+
+	private PhotobookDownloadAggregation() {}
 
 	public static List<Document> getAggregation( String photobookId, String imageId ) {
 		/*

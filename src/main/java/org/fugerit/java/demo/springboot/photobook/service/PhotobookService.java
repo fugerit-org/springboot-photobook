@@ -21,9 +21,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PhotobookService {
 
-    @Autowired
-    MongoTemplate mongoTemplate;
-	
+	private MongoTemplate mongoTemplate;
+
+	public PhotobookService(MongoTemplate mongoTemplate) {
+		this.mongoTemplate = mongoTemplate;
+	}
+
 	public Document listPhotobooks( String langCode, int perPage, int currentPage ) {
 		MongoCollection<Document> collection = mongoTemplate.getCollection( "photobook_meta" );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookListAggregation.getAggregation(langCode, perPage, currentPage) );
