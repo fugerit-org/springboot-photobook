@@ -22,8 +22,8 @@ jobs:
           java-type: 'native'
           java-distribution: 'graalvm'
           java-version: '22-ea'
-          maven-options: ' clean verify'
-          docker-file: './src/main/docker/Dockerfile.build.native'
+          maven-options: ' -Pnative,buildreact native:compile'
+          docker-file: './src/main/docker/Dockerfile.native'
           docker-platforms: linux/arm64
           docker-tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{github.event.repository.name}}:${{ github.ref_name }}-arm64native,${{ secrets.DOCKERHUB_USERNAME }}/${{github.event.repository.name}}:latest-arm64native
           dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
