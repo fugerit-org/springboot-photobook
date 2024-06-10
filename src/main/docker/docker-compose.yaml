@@ -1,0 +1,38 @@
+# This is a sample Docker Compose file that can be used to start the
+# services required by Database Versioning POC.
+version: '3.8'
+
+# Define the networks
+networks:
+  photobook_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+
+# Define the services
+# 1. Postgres
+services:
+  # See https://hub.docker.com/_/postgres for more details about the
+  # environment variables used to configure the PostgreSQL database.
+  mongodb:
+    image: mongo:8.0.0-rc7
+    container_name: mongo8-photobook
+    restart: always
+    networks:
+      - photobook_network
+    ports:
+      - "27017:27017"
+    volumes:
+      - ${PWD}//src/test/resources/mongo-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+  photobook:
+    image: fugeritorg/springboot-photobook:latest
+    container_name: springboot-photobook
+    restart: always
+    networks:
+      - photobook_network
+    environment:
+      - MONGODB_URL=mongodb://192.168.5.89:27017/photobook_demo
+    ports:
+      - "8080:8080"
+

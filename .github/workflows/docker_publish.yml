@@ -16,9 +16,13 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - uses: fugerit-org/psychic-actions/maven-build-scan@stable
+        with:
+          maven-additional-profiles: ',buildreact'
       - uses: fugerit-org/psychic-actions/maven-container-publish@mcp
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          maven-options: package -P buildreact
           docker-file: './src/main/docker/Dockerfile.jvm'
           docker-platforms: linux/amd64,linux/arm64
           docker-tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{github.event.repository.name}}:${{ github.ref_name }},${{ secrets.DOCKERHUB_USERNAME }}/${{github.event.repository.name}}:latest
