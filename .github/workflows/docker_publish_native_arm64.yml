@@ -8,7 +8,6 @@ on:
   push:
     branches:
       - graal
-      - graal-arm
   release:
     types: [published]
 

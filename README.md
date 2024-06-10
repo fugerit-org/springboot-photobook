@@ -54,7 +54,7 @@ npm run start
 
 ### 3. Access home page
 
-[http://localhost:8080/photobook-demo/home/index.html](http://localhost:7080/photobook-demo/home/index.html)
+<http://localhost:8080/photobook-demo/home/index.html>
 
 ## environment variables
 

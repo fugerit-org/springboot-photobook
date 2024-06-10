@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.fugerit.java.demo</groupId>
 	<artifactId>springboot-photobook</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>springboot-photobook</name>
 	<description>Spring Boot Demo Photobook</description>
 	
@@ -196,7 +196,7 @@
 								<goals>
 									<goal>exec</goal>
 								</goals>
-								<phase>compile</phase>
+								<phase>generate-sources</phase>
 								<configuration>
 									<executable>npm</executable>
 									<arguments>
@@ -217,7 +217,7 @@
 						<executions>
 							<execution>
 								<id>copy front end</id>
-								<phase>compile</phase>
+								<phase>generate-resources</phase>
 								<goals>
 									<goal>run</goal>
 								</goals>

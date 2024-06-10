@@ -7,23 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.1] - 2024-06-10
-
-### Added
-
-- native arm container build workflow (self hosted)
-
-### Fixed
-
-- build.properties metadata in native image
-- buildreact profile in native amd64 workflow
-
-## [1.0.0] - 2024-06-09
+## [1.0.0] - 2024-06-10
 
 ### Added
 
 - dockerfile for native image and openjdk image
 - test containers configuration
+- native arm container build workflow (self hosted)
 
 ### Changed
 
@@ -32,3 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - default port set to 8080
 - fj-core set to 8.6.2
 - java version 21
+
+### Fixed
+
+- build.properties metadata in native image
+- buildreact profile in native amd64 workflow
+- buildreact phases
