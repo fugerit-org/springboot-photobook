@@ -11,16 +11,19 @@
 
 Recently I followed some [Mongo DB courses](https://learn.mongodb.com/) and attended the [Spring I/O 2023](https://2023.springio.net/).  
 So I decided to practice a bit. This project is the result.  
-Currently is just the result of about 6/8 hours of work, so I just a POC integration of Mongo DB and Spring Boot.
+Currently is just a simple POC integration of Mongo DB and Spring Boot.
 
 There is a live version at the link [https://springio23.fugerit.org/photobook-demo/home/index.html](https://springio23.fugerit.org/photobook-demo/home/index.html)
 
-## Quickstart 
+## Prerequisites
 
 [![Java runtime version](https://img.shields.io/badge/run%20on-java%2021+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://universe.fugerit.org/src/docs/versions/java21.html)
 [![Java build version](https://img.shields.io/badge/build%20on-GraalVM%2021+-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://universe.fugerit.org/src/docs/versions/gvm21.html)
 [![Apache Maven](https://img.shields.io/badge/Apache%20Maven-3.9.0+-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)](https://universe.fugerit.org/src/docs/versions/maven3_9.html)
-[![Node JS](https://img.shields.io/badge/Node%20JS-20+-1AC736?style=for-the-badge&logo=node.js&logoColor=white)](https://universe.fugerit.org/src/docs/versions/maven3_9.html)
+[![Node JS](https://img.shields.io/badge/Node%20JS-20+-1AC736?style=for-the-badge&logo=node.js&logoColor=white)](https://universe.fugerit.org/src/docs/versions/node.html)
+[![Docker](https://img.shields.io/badge/docker-26+-1266E7?style=for-the-badge&logo=docker&logoColor=white)](https://universe.fugerit.org/src/docs/versions/docker.html)
+
+## Quickstart 
 
 ### 1. Mongo db
 
@@ -32,18 +35,22 @@ docker run --rm -p 27017:27017 --name MONGO8 -v `pwd`/src/test/resources/mongo-d
 
 This will start a mongo db linked on the default port and with the default username/password (root/example).
 
-### 2. Start the application with maven
+### 2. Start the application in dev mode
 
-build
-
-```shell
-mvn clean install -P buildreact
-```
-And start
+The back end
 
 ```shell
 mvn spring-boot:run
 ```
+
+And front end
+
+```shell
+cd src/main/react
+npm install
+npm run start
+```
+
 
 ### 3. Access home page
 
@@ -51,24 +58,40 @@ mvn spring-boot:run
 
 ## environment variables
 
+In case you want a custom mongo db connection :
+
 | key         | dedault                                  | 
 |-------------|------------------------------------------|
 | MONGODB_URL | mongodb://localhost:27017/photobook_demo |
 
-## Native compilation
+## Spring Boot package
+
+It is possible to compile the application to a single jar package :
+
+```shell
+mvn package -Pbuildreact
+```
+
+And then run
+
+```shell
+java -jar ./target/springboot-photobook-*.jar
+```
+
+## Native image compilation
 
 The code has been set for native compilation with [GraalVM](https://www.graalvm.org/) (tested with GraalVM 22.3 CE).  
 
 It is possible to compile :
 
 ```shell
-mvn -Pnative,buildreact native:compile
+mvn -Pbuildreact,native clean native:compile
 ```
 
-Or build an image : 
+And then run
 
 ```shell
-mvn -Pnative,buildreact spring-boot:build-image
+./target/springboot-photobook
 ```
 
 Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) for more informations.
@@ -80,7 +103,7 @@ Refer to [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/cur
 Build spring application (jar)
 
 ```shell
-mvn clean package -P buildreact
+mvn package -P buildreact
 ```
 
 Build container openjdk
@@ -97,7 +120,13 @@ docker run -it -p 8080:8080 --name springboot-photobook-jvm springboot-photobook
 
 ### docker container (native)
 
-Building the native image : 
+Building the native image :
+
+```shell
+mvn -Pbuildreact,native clean native:compile
+```
+
+Building the container image : 
 
 ```shell
 docker build -t springboot-photobook-native -f src/main/docker/Dockerfile.native .
