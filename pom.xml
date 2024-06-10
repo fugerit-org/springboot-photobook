@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.fugerit.java.demo</groupId>
 	<artifactId>springboot-photobook</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<name>springboot-photobook</name>
 	<description>Spring Boot Demo Photobook</description>
 	
