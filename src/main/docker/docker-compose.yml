@@ -1,4 +1,4 @@
-# This is a sample Docker Compose file that can be used to start the
+# sample docker compose file for https://github.com/fugerit-org/springboot-photobook
 # docker-compose -f src/main/docker/docker-compose.yml up -d
 version: '3.8'
 
@@ -23,8 +23,11 @@ services:
     ports:
       - "27017:27017"
     volumes:
+      # sample photobook initialization
       - ${PWD}/src/test/resources/mongo-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
   photobook:
+    # possible to chose more tags from :
+    # https://hub.docker.com/repository/docker/fugeritorg/springboot-photobook/general
     image: fugeritorg/springboot-photobook:latest
     container_name: springboot-photobook
     restart: always

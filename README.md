@@ -17,17 +17,25 @@ There is a live version at the link [https://springio23.fugerit.org/photobook-de
 
 ## Prerequisites
 
-[![Java runtime version](https://img.shields.io/badge/run%20on-java%2021+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://universe.fugerit.org/src/docs/versions/java21.html)
-[![Java build version](https://img.shields.io/badge/build%20on-GraalVM%2021+-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://universe.fugerit.org/src/docs/versions/gvm21.html)
-[![Apache Maven](https://img.shields.io/badge/Apache%20Maven-3.9.0+-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)](https://universe.fugerit.org/src/docs/versions/maven3_9.html)
-[![Node JS](https://img.shields.io/badge/Node%20JS-20+-1AC736?style=for-the-badge&logo=node.js&logoColor=white)](https://universe.fugerit.org/src/docs/versions/node.html)
-[![Docker](https://img.shields.io/badge/docker-26+-1266E7?style=for-the-badge&logo=docker&logoColor=white)](https://universe.fugerit.org/src/docs/versions/docker.html)
+| software                                                                                                                                                                                                 | docker compose | local build and run |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------------|
+| [![Java runtime version](https://img.shields.io/badge/run%20on-java%2021+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://universe.fugerit.org/src/docs/versions/java21.html)   | no             | yes                 |
+| [![Java build version](https://img.shields.io/badge/build%20on-GraalVM%2021+-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://universe.fugerit.org/src/docs/versions/gvm21.html) | no             | yes                 |
+| [![Apache Maven](https://img.shields.io/badge/Apache%20Maven-3.9.0+-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)](https://universe.fugerit.org/src/docs/versions/maven3_9.html)       | no             | yes                 |
+| [![Node JS](https://img.shields.io/badge/Node%20JS-20+-1AC736?style=for-the-badge&logo=node.js&logoColor=white)](https://universe.fugerit.org/src/docs/versions/node.html)                               | no             | yes                 |
+| [![Docker](https://img.shields.io/badge/docker-26+-1266E7?style=for-the-badge&logo=docker&logoColor=white)](https://universe.fugerit.org/src/docs/versions/docker.html)                                  | yes            | no                  |
 
 ## Quickstart 
 
-### 1. Mongo db
+### Start via docker compose
 
-Create mongo db instance with db initialization (script src/test/resources/mongo-db/mongo-init.js) :
+```shell
+docker-compose -f src/main/docker/docker-compose.yml up -d
+```
+
+### Start in dev mode
+
+1. Create mongo db instance with db initialization (script src/test/resources/mongo-db/mongo-init.js) :
 
 ```shell
 docker run --rm -p 27017:27017 --name MONGO8 -v `pwd`/src/test/resources/mongo-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js mongo:8.0.0-rc7
@@ -35,7 +43,7 @@ docker run --rm -p 27017:27017 --name MONGO8 -v `pwd`/src/test/resources/mongo-d
 
 This will start a mongo db linked on the default port and with the default username/password (root/example).
 
-### 2. Start the application in dev mode
+2. Start the application in dev mode
 
 The back end
 
@@ -51,8 +59,7 @@ npm install
 npm run start
 ```
 
-
-### 3. Access home page
+3. Access home page
 
 <http://localhost:8080/photobook-demo/home/index.html>
 
