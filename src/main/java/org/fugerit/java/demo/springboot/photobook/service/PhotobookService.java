@@ -31,10 +31,12 @@ public class PhotobookService {
 		MongoCollection<Document> collection = mongoTemplate.getCollection( "photobook_meta" );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookListAggregation.getAggregation(langCode, perPage, currentPage) );
 		Document doc = null;
-		MongoCursor<Document> cursor = result.iterator();
-		if ( cursor.hasNext() ) {
-			doc = cursor.next();
+		try (MongoCursor<Document> cursor = result.iterator()) {
+			if ( cursor.hasNext() ) {
+				doc = cursor.next();
+			}
 		}
+		log.info( "listPhotobooks, langCode : {}, perPage : {}, currentPage : {}", langCode, perPage, currentPage );
 		return doc;
 	}
 	
@@ -42,10 +44,12 @@ public class PhotobookService {
 		MongoCollection<Document> collection = mongoTemplate.getCollection( "photobook_images" );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookImagesAggregation.getAggregation(photobookId, langCode, perPage, currentPage) );
 		Document doc = null;
-		MongoCursor<Document> cursor = result.iterator();
-		if ( cursor.hasNext() ) {
-			doc = cursor.next();
+		try (MongoCursor<Document> cursor = result.iterator()) {
+			if ( cursor.hasNext() ) {
+				doc = cursor.next();
+			}
 		}
+		log.info( "listImages, photobookId : {}, langCode : {}", photobookId, langCode );
 		return doc;
 	}
 	
@@ -55,15 +59,17 @@ public class PhotobookService {
 		MongoCollection<Document> collection = mongoTemplate.getCollection( "photobook_images" );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookDownloadAggregation.getAggregation(photobookId, imageId) );
 		byte[] data = null;
-		MongoCursor<Document> cursor = result.iterator();
-		if ( cursor.hasNext() ) {
-			Document doc = cursor.next();
-			String base64 = (String)doc.get( "base64" );
-			data = Base64.getDecoder().decode( base64 );
-			log.debug( "found! {}, {}, size: {}", photobookId, imageId, data.length );
-		} else {
-			log.debug( "not found! {}, {}", photobookId, imageId );
+		try (MongoCursor<Document> cursor = result.iterator()) {
+			if ( cursor.hasNext() ) {
+				Document doc = cursor.next();
+				String base64 = (String)doc.get( "base64" );
+				data = Base64.getDecoder().decode( base64 );
+				log.debug( "found! {}, {}, size: {}", photobookId, imageId, data.length );
+			} else {
+				log.debug( "not found! {}, {}", photobookId, imageId );
+			}
 		}
+		log.info( "downloadImage photobookId : {}, imageId : {}", photobookId, imageId );
 		return data;
 	}
 	
