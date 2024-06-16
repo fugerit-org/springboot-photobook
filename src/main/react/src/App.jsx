@@ -8,17 +8,17 @@ import CssBaseline from '@mui/material/CssBaseline';
 const TITLE = 'Photobook Demo';
 
 const darkTheme = createTheme({
-  palette: {
-	background: { default:'#205030' },
-    mode: 'dark'
-  },
+	palette: {
+		background: { default:'#205030' },
+		mode: 'dark'
+	},
 });
 
 function App() {
 
 	return (
 		<ThemeProvider theme={darkTheme}>
-      		<CssBaseline />
+			<CssBaseline />
 			<Helmet>
 				<title>{TITLE}</title>
 			</Helmet>

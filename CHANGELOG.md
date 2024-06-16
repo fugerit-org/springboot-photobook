@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - mongo db url set to ${MONGODB_URL:mongodb://localhost:27017/photobook_demo}
 - default port set to 8080
 - readme (added docker-compose info)
+- node 20 for front end
+- front end migrated to vite react
 
 ### Fixed
 
