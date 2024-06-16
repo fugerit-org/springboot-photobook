@@ -293,6 +293,46 @@
 			</build>
 		</profile>
 
+		<profile>
+			<id>instrumented</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<configuration>
+							<imageName>${project.artifactId}-instrumented</imageName>
+							<buildArgs>
+								<buildArg>--pgo-instrument</buildArg>
+								<buildArg>-H:IncludeResources=build.properties</buildArg>
+							</buildArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>optimized</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<configuration>
+							<imageName>${project.artifactId}-optimized</imageName>
+							<buildArgs>
+								<!--<buildArg>gc=G1</buildArg>-->
+								<buildArg>--pgo=${project.basedir}/default.iprof</buildArg>
+								<buildArg>-march=native</buildArg>
+								<buildArg>-H:IncludeResources=build.properties</buildArg>
+							</buildArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
 	</profiles>
 
 </project>

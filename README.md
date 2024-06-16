@@ -33,6 +33,10 @@ There is a live version at the link [https://springio23.fugerit.org/photobook-de
 docker-compose -f src/main/docker/docker-compose.yml up -d
 ```
 
+access home page
+
+<http://localhost:8080/photobook-demo/home/index.html>
+
 ### Start in dev mode
 
 1. Create mongo db instance with db initialization (script src/test/resources/mongo-db/mongo-init.js) :
@@ -143,6 +147,40 @@ Running the container :
 
 ```shell
 docker run -it -p 8080:8080 --name springboot-photobook-native springboot-photobook-native
+```
+
+## Native optimization : PGO 🚀
+
+This section is based on <https://github.com/alina-yur/native-spring-boot>.
+
+One of the most powerful performance optimizations in Native Image is profile-guided optimizations (PGO).
+
+1. Build an instrumented image:
+
+```shell
+mvn -Pnative,instrumented native:compile
+```
+
+2. Run the app and apply relevant workload:
+
+```shell
+./target/springboot-photobook-instrumented
+```
+
+```shell
+hey -n=30000 http://localhost:8080/photobook-demo/api/photobook/view/list
+```
+
+```shell
+hey -n=30000 http://localhost:8080/photobook-demo/api/photobook/view/images/springio23/language/it/current_page/1/page_size/5
+```
+
+after you shut down the app, you'll see an `iprof` file in your working directory.
+
+3. Build an app with profiles (they are being picked up via `<buildArg>--pgo=${project.basedir}/default.iprof</buildArg>`):
+
+```shell
+mvn -Pnative,optimized native:compile
 ```
 
 ## application stack
