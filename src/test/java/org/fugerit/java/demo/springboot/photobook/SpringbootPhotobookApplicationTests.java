@@ -71,6 +71,7 @@ class SpringbootPhotobookApplicationTests {
 			log.info( "test meta controller" );
 			Assertions.assertNotNull( this.metaController );
 			Assertions.assertNotNull( this.metaController.version().getBody() );
+			Assertions.assertNotNull( this.metaController.info().getBody() );
 		} catch ( Exception e ) {
 			Assertions.fail( String.format( "error %s", e.getMessage() ) );
 		} finally {

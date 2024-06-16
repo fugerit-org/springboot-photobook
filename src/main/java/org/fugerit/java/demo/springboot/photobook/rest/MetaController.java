@@ -1,7 +1,9 @@
 package org.fugerit.java.demo.springboot.photobook.rest;
 
+import java.util.LinkedHashMap;
 import java.util.Properties;
 
+import org.fugerit.java.core.lang.helpers.StringUtils;
 import org.fugerit.java.core.util.PropsIO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,5 +26,22 @@ public class MetaController {
 			return new ResponseEntity<>(buildProps, HttpStatus.OK);
 		} );
 	}
-	
+
+	private static final String[] ADD_PROPS = { "java.version", "java.vendor", "os.name", "os.version", "os.arch" };
+
+	@GetMapping("/info")
+	public ResponseEntity<String> info() {
+		return RestHelper.handle( () -> {
+			StringBuilder info = new StringBuilder();
+			for ( String key : ADD_PROPS ) {
+				info.append( key );
+				info.append( " = " );
+				info.append( System.getProperty( key ) );
+				info.append( ", " );
+			}
+			String res = info.toString();
+			return new ResponseEntity<>(res, HttpStatus.OK);
+		} );
+	}
+
 }
