@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2024-06-16 (Spring I/O 2024)
+
 ### Added
 
 - test containers test with mongo 8.0.0-rc8
