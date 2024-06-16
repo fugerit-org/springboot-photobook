@@ -7,34 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-
-- readme (added docker-compose info)
-
-## [1.0.1] - 2024-06-11
-
-### Fixed
-
-- docker image workflow
-
-## [1.0.0] - 2024-06-10
-
 ### Added
 
-- dockerfile for native image and openjdk image
-- test containers configuration
-- native arm container build workflow (self hosted)
+- test containers test with mongo 8.0.0-rc8
+- use of virtual threads
 
 ### Changed
 
+- java version 21
+- based on spring boot 3.3.0
 - registered classes for reflection
 - mongo db url set to ${MONGODB_URL:mongodb://localhost:27017/photobook_demo}
 - default port set to 8080
-- fj-core set to 8.6.2
-- java version 21
+- readme (added docker-compose info)
 
 ### Fixed
 
 - build.properties metadata in native image
 - buildreact profile in native amd64 workflow
 - buildreact phases
+
+## [1.0.0] - 2023-05-29 (Spring I/O 2023)
+
+### Added
+
+- version after spring [Spring I/O 2023](https://2023.springio.net/)
+- using springboot 3.0, java 17 and graalvm

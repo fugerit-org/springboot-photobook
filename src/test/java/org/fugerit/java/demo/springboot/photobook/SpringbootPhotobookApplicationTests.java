@@ -36,7 +36,7 @@ class SpringbootPhotobookApplicationTests {
 
 	private static final String MONGO_DB_URI_PROP = "spring.data.mongodb.uri";
 
-	final static GenericContainer mongoDBContainer = new GenericContainer( "mongo:8.0.0-rc7" )
+	final static GenericContainer mongoDBContainer = new GenericContainer( "mongo:8.0.0-rc8" )
 			.withCopyToContainer(MountableFile.forHostPath( new File( "src/test/resources/mongo-db/mongo-init.js" ).getPath() ), "/docker-entrypoint-initdb.d/mongo-init.js" )
 			.withExposedPorts( 27017 );
 

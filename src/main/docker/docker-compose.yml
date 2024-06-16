@@ -15,7 +15,7 @@ networks:
 # 2. Spring Boot
 services:
   mongodb:
-    image: mongo:8.0.0-rc7
+    image: mongo:8.0.0-rc8
     container_name: mongo8-photobook
     restart: always
     networks:

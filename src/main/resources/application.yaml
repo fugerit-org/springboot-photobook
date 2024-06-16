@@ -4,6 +4,11 @@ server:
     context-path: /photobook-demo
     
 spring:
+
   data:
     mongodb:
       uri: ${MONGODB_URL:mongodb://localhost:27017/photobook_demo}
+
+  threads:
+    virtual:
+      enabled: true
