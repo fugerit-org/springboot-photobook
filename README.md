@@ -149,7 +149,7 @@ Running the container :
 docker run -it -p 8080:8080 --name springboot-photobook-native springboot-photobook-native
 ```
 
-## Native optimization : PGO 🚀
+## Native optimization : PGO
 
 This section is based on <https://github.com/alina-yur/native-spring-boot>.
 
@@ -181,6 +181,26 @@ after you shut down the app, you'll see an `iprof` file in your working director
 
 ```shell
 mvn -Pnative,optimized native:compile
+```
+
+## Benchmark script
+
+1. Benchmark JIT
+
+```shell
+mvn clean package
+```
+
+```shell
+./src/main/script/bench-jit.sh
+```
+
+2. Benchmark native
+
+Follow steps in 'Native optimization : PGO' section
+
+```shell
+./src/main/script/bench-natve.sh
 ```
 
 ## application stack

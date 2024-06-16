@@ -7,10 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- instruction for native optimization (PGO, based on <https://github.com/alina-yur/native-spring-boot/>)
+- benchmark script (psrecord needed)
+
 ### Fixed
 
 - MongoDB's resources handling
-- Added instruction for native optimization (PGO, based on <https://github.com/alina-yur/native-spring-boot/>)
 
 ## [2.0.0] - 2024-06-16 (Spring I/O 2024)
 
