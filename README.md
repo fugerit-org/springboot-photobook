@@ -144,3 +144,14 @@ Running the container :
 ```shell
 docker run -it -p 8080:8080 --name springboot-photobook-native springboot-photobook-native
 ```
+
+## application stack
+
+| Layer             | 2023 version     | 2024 version     |
+|-------------------|------------------|------------------|
+| Persistance       | MongoDB 6        | MongoDB 8        |
+| Java version      | GraalVM 17       | GraalVM 21       |
+| API REST          | SpringBoot 3.0.0 | SpringBoot 3.3.0 |
+| Node JS           | Node 18          | Node 20          |
+| Front end package | React scripts    | Vite             |
+| Front end UI      | React 18.2       | React 18.3       |
