@@ -183,7 +183,7 @@ after you shut down the app, you'll see an `iprof` file in your working director
 mvn -Pnative,optimized native:compile
 ```
 
-## Benchmark script
+## Benchmark scripts
 
 Prerequisites :
 - running mongo db
