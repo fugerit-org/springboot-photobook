@@ -185,7 +185,14 @@ mvn -Pnative,optimized native:compile
 
 ## Benchmark script
 
-1. Benchmark JIT
+Prerequisites :
+- running mongo db
+- `hey` installed
+- `psrecord` installed
+
+At the end of a run, an image will be plotted in the `target` folder.
+
+### 1. Benchmark JIT
 
 ```shell
 mvn clean package
@@ -195,19 +202,29 @@ mvn clean package
 ./src/main/script/bench-jit.sh
 ```
 
-2. Benchmark native
+### 2. Benchmark native
 
 Follow steps in 'Native optimization : PGO' section
 
 ```shell
-./src/main/script/bench-natve.sh
+./src/main/script/bench-native.sh
 ```
+
+### 3. Benchmark result
+
+Sample result of JIT benchmark run : 
+
+![JIT Benchmark Result](src/main/docs/images/bench-result-jit-20240617.png)
+
+Sample result of native (AOT) benchmark run :
+
+![Native Benchmark Result](src/main/docs/images/bench-result-native-20240617.png)
 
 ## application stack
 
 | Layer             | 2023 version     | 2024 version     |
 |-------------------|------------------|------------------|
-| Persistance       | MongoDB 6        | MongoDB 8        |
+| Persistence       | MongoDB 6        | MongoDB 8        |
 | Java version      | GraalVM 17       | GraalVM 21       |
 | API REST          | SpringBoot 3.0.0 | SpringBoot 3.3.0 |
 | Node JS           | Node 18          | Node 20          |
