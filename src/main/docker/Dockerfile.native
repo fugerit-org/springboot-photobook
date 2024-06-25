@@ -6,4 +6,4 @@ WORKDIR /app
 COPY target/springboot-photobook /app/springboot-photobook
 
 # Run the application
-CMD ["/app/springboot-photobook"]
+ENTRYPOINT [ "sh", "-c", "/app/springboot-photobook ${JAVA_OPTS_APPEND}"]
