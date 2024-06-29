@@ -238,3 +238,29 @@ Sample result of native (AOT) benchmark run :
 | Node JS           | Node 18          | Node 20          |
 | Front end package | React scripts    | Vite             |
 | Front end UI      | React 18.2       | React 18.3       |
+
+## Deploy on Google App Engine
+
+Prerequisites :
+* google cloud account
+* GCloud CLI
+
+[Simple app.yaml for AOT](src/main/appengine/app-aot.yaml) and
+[Simple app.yaml for JIT](src/main/appengine/app-jit.yaml)
+
+Customize the app.yaml and run gcloud
+
+```shell
+gcloud micronaut-photobook-*runner.jar --appyaml=src/main/appengine/app-jit.yaml
+```
+
+For JIT version or
+
+```shell
+gcloud micronaut-photobook --appyaml=src/main/appengine/app-aot.yaml
+```
+
+For AOT version
+
+Further reference :
+* <https://cloud.google.com/sdk/gcloud/reference/app/deploy>
