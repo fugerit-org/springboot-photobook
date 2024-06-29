@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: springboot-photobook-aot
+spec:
+  template:
+    metadata:
+      name: springboot-photobook-aot-rev1
+    spec:
+      containers:
+        - image: docker.io/fugeritorg/springboot-photobook:latest
+          ports:
+            - containerPort: 8080
+          env:
+#            - name: MONGODB_URL
+#              value: # setup mongo db url

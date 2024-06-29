@@ -264,3 +264,27 @@ For AOT version
 
 Further reference :
 * <https://cloud.google.com/sdk/gcloud/reference/app/deploy>
+## Deploy on KNative
+
+Prerequisites :
+* container environment (docker / podman)
+* Kubernates (for instance minikube)
+* Knative
+
+After setting up Knative,
+Customize the [micronaut-photobook-jit.yaml](src/main/knative/micronaut-photobook-jit.yaml) or
+[micronaut-photobook-aot.yaml](src/main/knative/micronaut-photobook-aot.yaml) service deployment.
+
+And run
+
+```shell
+kubectl apply -f micronaut-photobook-jit.yaml
+```
+
+For JIT version or
+
+```shell
+kubectl apply -f micronaut-photobook-aot.yaml
+```
+
+For AOT version
