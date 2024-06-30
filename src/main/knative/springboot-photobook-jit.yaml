@@ -1,11 +1,11 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: springboot-photobook-aot
+  name: springboot-photobook-jit
 spec:
   template:
     metadata:
-      name: springboot-photobook-aot-rev1
+      name: springboot-photobook-jit-rev1
     spec:
       containers:
         - image: docker.io/fugeritorg/springboot-photobook:latest
