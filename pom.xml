@@ -16,7 +16,7 @@
 	
 	<properties>
 		<java.version>21</java.version>
-		<fj-version>8.6.2</fj-version>
+		<fj-version>8.6.5</fj-version>
 		<!-- front end runtime -->
 		<src.react>src/main/react</src.react>
 		<npm.build.script>build</npm.build.script>

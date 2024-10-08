@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - based on spring boot 3.3.4
+- fj-core version set to 8.6.5
 
 ## [2.2.0] - 2024-06-30
 
