@@ -19,7 +19,6 @@ jobs:
       - uses: fugerit-org/psychic-actions/maven-container-publish@mcp
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          java-type: 'native'
           java-distribution: 'graalvm'
           java-version: '22-ea'
           maven-options: ' -Pnative,buildreact native:compile'
