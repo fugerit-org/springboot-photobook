@@ -1,6 +1,5 @@
 # sample docker compose file for https://github.com/fugerit-org/springboot-photobook
-# docker-compose -f src/main/docker/docker-compose.yml up -d
-version: '3.8'
+# docker compose -f src/main/docker/docker-compose.yml up -d
 
 # Define the networks
 networks:
@@ -15,7 +14,7 @@ networks:
 # 2. Spring Boot
 services:
   mongodb:
-    image: mongo:8.0.0-rc8
+    image: mongo:8.0
     container_name: mongo8-photobook
     restart: always
     networks:

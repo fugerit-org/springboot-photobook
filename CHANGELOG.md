@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- docker compose native
+
 ### Changed
 
+- mongodb container version set to 8.0
 - based on spring boot 3.4.2
 - fj-core version set to 8.6.6
 - using actions/setup-java for native build
