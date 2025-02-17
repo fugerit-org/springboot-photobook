@@ -1,5 +1,5 @@
 # sample docker compose file for https://github.com/fugerit-org/springboot-photobook
-# docker compose -f src/main/docker/docker-compose.yml up -d
+# docker compose -f src/main/docker/docker-compose-native.yml up -d
 
 # Define the networks
 networks:
