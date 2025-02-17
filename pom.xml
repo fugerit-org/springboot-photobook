@@ -26,6 +26,7 @@
 		<jacoco-maven-plugin-version>0.8.12</jacoco-maven-plugin-version>
 		<buildnumber-maven-plugin-version>3.2.0</buildnumber-maven-plugin-version>
 		<licenseURL>http://www.apache.org/licenses/LICENSE-2.0.txt</licenseURL>
+		<maven.compiler.proc>full</maven.compiler.proc>
 	</properties>
 
 	<scm>
