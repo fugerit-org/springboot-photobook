@@ -42,7 +42,7 @@ access home page
 1. Create mongo db instance with db initialization (script src/test/resources/mongo-db/mongo-init.js) :
 
 ```shell
-docker run --rm -p 27017:27017 --name MONGO8 -v `pwd`/src/test/resources/mongo-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js mongo:8.0.0-rc7
+docker run --rm -p 27017:27017 --name MONGO8 -v `pwd`/src/test/resources/mongo-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js mongo:8.2.3
 ```
 
 This will start a mongo db linked on the default port and with the default username/password (root/example).

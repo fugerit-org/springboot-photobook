@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.2</version>
+		<version>3.5.10</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.fugerit.java.demo</groupId>
@@ -16,14 +16,14 @@
 	
 	<properties>
 		<java.version>21</java.version>
-		<fj-version>8.6.6</fj-version>
+		<fj-version>8.7.3</fj-version>
 		<!-- front end runtime -->
 		<src.react>src/main/react</src.react>
 		<npm.build.script>build</npm.build.script>
 		<fe.dist.dir>src/main/resources/static/home</fe.dist.dir>
 		<exec-plugin.version>3.1.0</exec-plugin.version>
 		<antrun-plugin.version>3.1.0</antrun-plugin.version>
-		<jacoco-maven-plugin-version>0.8.12</jacoco-maven-plugin-version>
+		<jacoco-maven-plugin-version>0.8.14</jacoco-maven-plugin-version>
 		<buildnumber-maven-plugin-version>3.2.0</buildnumber-maven-plugin-version>
 		<licenseURL>http://www.apache.org/licenses/LICENSE-2.0.txt</licenseURL>
 		<maven.compiler.proc>full</maven.compiler.proc>
