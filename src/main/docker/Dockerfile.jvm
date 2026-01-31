@@ -1,4 +1,4 @@
-FROM amazoncorretto:21.0.3-alpine3.19
+FROM amazoncorretto:21.0.10-alpine3.23
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT [ "sh", "-c", "java ${JAVA_OPTS_APPEND} -jar /app.jar"]

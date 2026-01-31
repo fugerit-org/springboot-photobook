@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- JVM base image amazoncorretto:21.0.10-alpine3.23
+
 ## [2.3.0] - 2026-01-29
 
 ### Changed
